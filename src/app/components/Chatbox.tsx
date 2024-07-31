@@ -39,6 +39,7 @@ export default function Chatbox() {
             const response = await axios.post("/api/chatbot", { prompt });
             console.log("Response data:", response.data);
             setpromptreply(response.data);
+
         } catch (error) {
             console.error('Error sending prompt:', error);
         }
