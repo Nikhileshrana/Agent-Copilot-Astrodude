@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function page(){
     return (
         <div className="container mx-auto px-4 py-8">
-          <h1 className="text-4xl font-bold mb-4 text-center text-violet-300">Nikhilesh's Judgemental AI</h1>
+          <h1 className="text-4xl font-bold mb-4 text-center text-violet-300">Nikhilesh Judgemental AI</h1>
           
           <p className="text-lg mb-6 text-gray-600">
             Welcome to Judgemental AI! This AI has been developed to evaluate users based on their prompt writing skills and their knowledge on a particular topic. Here’s how it works:
@@ -18,11 +18,11 @@ export default function page(){
             <li>The AI evaluates the prompt based on complexity, relevance, and knowledge required.</li>
             <li>The AI assigns a score based on these factors:</li>
             <ul className="list-disc list-inside ml-6 text-gray-600">
-              <li><strong>Score:</strong> Reflects the user’s knowledge and prompt-writing ability.</li>
+              <li><strong>Score:</strong> Reflects the user knowledge and prompt-writing ability.</li>
               <li>Basic questions receive a lower score.</li>
               <li>Advanced and complex questions receive a higher score.</li>
             </ul>
-            <li>For general or irrelevant prompts, the AI sets the score to "Null".</li>
+            <li>For general or irrelevant prompts, the AI sets the score to Null.</li>
             <li>For suspicious or potentially cheating-related prompts, the AI warns the user with a humorous message.</li>
           </ul>
     
