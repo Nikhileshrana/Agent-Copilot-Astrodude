@@ -16,11 +16,11 @@ export default function Chatbox() {
     const [promptreply, setpromptreply] = useState<PromptReply[]>([{ heading: "Hi , Just another GPT ? Nahhh Try me out and Get Shocked !", content: "" }]);
 
     const placeholders = [
-        "What's the first rule of Fight Club?",
-        "Who is Tyler Durden?",
-        "Where is Andrew Laeddis Hiding?",
+        "Who Invented Next.JS?",
+        "is AI going to take over the world?",
+        "Who are you?",
         "Write a Javascript method to reverse a string",
-        "How to assemble your own PC?",
+        "What is an Array?",
     ];
 
     useEffect(() => {
@@ -48,18 +48,14 @@ export default function Chatbox() {
     return (
         <>
             <div className="h-fit w-full flex flex-col justify-center items-center px-4">
-                <h2 className="mb-10 sm:mb-20 text-xl text-center sm:text-5xl dark:text-white text-black">
-                    Ask Astrodude Anything.
-                </h2>
                 <PlaceholdersAndVanishInput placeholders={placeholders} onChange={handleChange} onSubmit={onSubmit} />
             </div>
 
-            <div className='h-fit w-full p-5 text-lg sm:px-[25%] text-justify sm:text-2xl font-semibold'>
-                <br />
-                <b className=' text-3xl'>{promptreply[0].heading}</b>
-                <br />
-                {promptreply.length > 1 && promptreply[1].content}
+            <div className='w-[90vw] sm:w-[70vw] h-fit mx-auto my-0 text-justify'>
+                <TextGenerateEffect words={promptreply[0].heading} key={promptreply[0].heading} />
+                <TextGenerateEffect words={promptreply[0].content} key={promptreply[0].content} />
             </div>
+
         </>
     );
 }

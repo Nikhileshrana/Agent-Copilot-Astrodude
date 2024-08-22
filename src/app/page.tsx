@@ -43,7 +43,7 @@ export default function ShootingStarsAndStarsBackgroundDemo() {
 
       <TypewriterEffectSmooth words={words} />
       <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4">
-        <Link className="z-50" href="/Frontend_Architecture">
+        <Link className="z-50" href="/Know-more">
         <button className="w-40 h-10 z-50 rounded-xl bg-black border dark:border-white border-transparent text-white text-sm">
           Know More.
         </button>

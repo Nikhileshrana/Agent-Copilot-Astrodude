@@ -6,12 +6,16 @@ import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
 export default function Header() {
 
-  const topwords = "Discover your strengths and elevate your knowledge with Nikhilesh's Judgement AI. Powered by a large, lightning-fast model, our AI evaluates your Prompt to the fullest.";
+  const topwords = "Nikhilesh's Judgement AI.";
 
 
   return (
     <>
-    <TextGenerateEffect className="p-5 sm:p-16 font-semibold" duration={2} filter={false} words={topwords} />
+   
+    <div className="h-fit w-full flex flex-col justify-center items-center px-4">
+        <TextGenerateEffect className="p-5 sm:p-16 font-semibold" duration={2} filter={false} words={topwords} />
+    </div>
+    
     </>
   );
 }
