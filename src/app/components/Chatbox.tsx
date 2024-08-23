@@ -5,7 +5,12 @@ import { Button } from "@/components/ui/button";
 import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
+import { useSession, signIn, signOut } from "next-auth/react";
+
+
 export default function Chatbox() {
+
+    const { data: session } = useSession();
 
     interface PromptReply {
         heading: string;
@@ -13,7 +18,7 @@ export default function Chatbox() {
     }
 
     const [prompt, setprompt] = useState("");
-    const [promptreply, setpromptreply] = useState<PromptReply[]>([{ heading: "Hi , Just another GPT ? Nahhh Try me out and Get Shocked !", content: "" }]);
+    const [promptreply, setpromptreply] = useState<PromptReply[]>([{ heading: `Hi! 👋 ${session?.user?.name}! What can i help you with today? Eg. Ask me if i will take over you hoomans :))`, content: "" }]);
 
     const placeholders = [
         "Who Invented Next.JS?",
