@@ -42,7 +42,7 @@ export default function page(){
           </p>
     
           <div className="text-center">
-            <Link href="/bot" className="inline-block bg-violet-500 text-white py-2 px-4 rounded hover:bg-violet-600">
+            <Link href="/Bot" className="inline-block bg-violet-500 text-white py-2 px-4 rounded hover:bg-violet-600">
             Submit a Prompt
             </Link>
           </div>
