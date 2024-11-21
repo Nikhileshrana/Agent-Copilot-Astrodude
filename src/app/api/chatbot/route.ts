@@ -2,9 +2,9 @@ import { NextResponse, NextRequest } from "next/server";
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import clientPromise from '@/lib/mongodb';
 
-const apiKey = process.env.GEMINI_API_KEY || "";
-
 export async function POST(req: NextRequest) {
+    
+    const apiKey = process.env.GEMINI_API_KEY || "";
 
     try {
         
@@ -22,7 +22,8 @@ export async function POST(req: NextRequest) {
         const converttostring = AIreply.toString();
         const converttojson = JSON.parse(converttostring);
         console.log(converttojson);
-        const check = "Testing this shit";
+
+
 
         try{
             console.log("Trying to save the data in the database.");
