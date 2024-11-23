@@ -3,13 +3,10 @@ import React from "react";
 import ShootingStars from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 
-
 export default function ShootingStarsAndStarsBackgroundDemo() {
-
-
+  
   const words = [
     {
       text: "Build",

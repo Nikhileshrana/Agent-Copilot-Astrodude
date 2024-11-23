@@ -15,10 +15,12 @@ export default function Chatbox() {
     interface PromptReply {
         heading: string;
         content: string;
+        score?: number;
     }
 
     const [prompt, setprompt] = useState("");
-    const [promptreply, setpromptreply] = useState<PromptReply[]>([{ heading: `Hi! 👋 ${session?.user?.name}! What can i help you with today? Eg. Ask me if i will take over you hoomans :))`, content: "" }]);
+
+    const [managerreply, setmanagerreply] = useState<PromptReply | null>({ heading: `Hi! 👋 ${session?.user?.name}! What can i help you with today? Eg. Ask me if i will take over you hoomans :))`, content: "" })
 
     const placeholders = [
         "Who Invented Next.JS?",
@@ -27,11 +29,6 @@ export default function Chatbox() {
         "Write a Javascript method to reverse a string",
         "What is an Array?",
     ];
-
-    useEffect(() => {
-        // Log the state whenever it updates
-        console.log("Updated promptreply:", promptreply);
-    }, [promptreply]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setprompt(e.target.value);
@@ -42,8 +39,12 @@ export default function Chatbox() {
             e.preventDefault();
             console.log("Sending the Prompt Accordingly.");
             const response = await axios.post("/api/chatbot", { prompt });
-            console.log("Response data:", response.data);
-            setpromptreply(response.data);
+            console.log(response.data.response);
+            console.log(response.data.response.slice(7,-4));
+
+            const reply = JSON.parse(response.data.response.slice(7,-4));
+            console.log(reply);
+            setmanagerreply(reply);
 
         } catch (error) {
             console.error('Error sending prompt:', error);
@@ -57,8 +58,12 @@ export default function Chatbox() {
             </div>
 
             <div className='w-[90vw] sm:w-[70vw] h-fit mx-auto my-0 text-justify'>
-                <TextGenerateEffect words={promptreply[0].heading} key={promptreply[0].heading} />
-                <TextGenerateEffect words={promptreply[0].content} key={promptreply[0].content} />
+                {managerreply && managerreply.heading && (
+                    <TextGenerateEffect words={managerreply.heading} key={managerreply.heading} />
+                )}
+                {managerreply && managerreply.content && (
+                    <TextGenerateEffect words={managerreply.content} key={managerreply.content} />
+                )}
             </div>
 
         </>
